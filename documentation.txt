@@ -1,0 +1,41 @@
+Documentation
+
+Questions
+Answer the following questions in full sentences. Please break out your answers into
+individual paragraphs so that they are easier to parse.
+
+● What is the intended purpose of your application?
+
+The purpose of this application is to allow the user to search for recipes. If the user has a "paid" profile, they will then have additional access to add their own recipe. (Paid function might be altered)
+
+
+● What data will be stored and delivered by the API?
+
+The user account information (username/password/paid profile). Also, the recipes will be stored in the api so the user can access them accordingly. 
+
+● What work has been completed for this prototype?
+
+
+● What work is left, and how do you plan to complete it?
+
+Still need to complete the folowing:
+1. 
+
+
+● Do you have a plan for going above and beyond? If so, what is it?
+
+
+● If you used any borrowed code or code fragments, where did you get them from?
+What do the code fragments do? Where are they in your code?
+
+recipe logo link: https://pixabay.com/vectors/recipe-label-icon-symbol-spoon-575434/ 
+chef image link: https://pixabay.com/illustrations/cook-food-symbol-shape-dish-494022/
+
+
+Endpoint Documentation
+
+URL: /
+Supported Methods: GET, HEAD
+Query Params: 
+Description: 
+Return Type(s): JSON
