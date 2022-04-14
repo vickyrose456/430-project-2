@@ -5,7 +5,7 @@ const router = (app) => {
   // connect routes
   app.get('/getToken', mid.requiresSecure, controllers.Account.getToken);
   app.get('/getRecipes', mid.requiresLogin, controllers.Recipe.getRecipes);
-  //app.get('/findByName', mid.requiresLogin, controllers.Recipe.searchRecipe);
+  // app.get('/findByName', mid.requiresLogin, controllers.Recipe.searchRecipe);
 
   // want to make sure login/signup is secure and logged out
   // so they cant try to login when logged in

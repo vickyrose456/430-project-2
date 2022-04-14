@@ -55,7 +55,7 @@ const signup = async (req, res) => {
       {
         username,
         password: hash,
-        subscribed
+        subscribed,
       }
     ));
 

@@ -12,11 +12,6 @@ const RecipeSchema = new mongoose.Schema({
     trim: true,
     set: setName,
   },
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-  },  
   ingredients: {
     type: String,
     min: 0,
@@ -56,7 +51,7 @@ RecipeSchema.statics.findByOwner = (ownerId, callback) => {
 
 // finding a specific recipe by category
 RecipeSchema.statics.findByName = (category, callback) => {
-  const search = { category,};
+  const search = { category };
 
   return RecipeModel.findOne(search, callback);
 };

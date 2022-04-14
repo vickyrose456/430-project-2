@@ -6,7 +6,7 @@ const { Recipe } = models;
 const makerPage = (req, res) => res.render('app');
 
 const makeRecipe = async (req, res) => {
-  if (!req.body.name ||!req.body.category || !req.body.ingredients || !req.body.cookingTime) {
+  if (!req.body.name || !req.body.category || !req.body.ingredients || !req.body.cookingTime) {
     return res.status(400).json({ error: 'Name, category, ingredients and cooking time are all required!' });
   }
 
@@ -21,7 +21,12 @@ const makeRecipe = async (req, res) => {
   try {
     const newRecipe = new Recipe(recipeData);
     await newRecipe.save();
-    return res.status(201).json({ name: newRecipe.name, category: newRecipe.category, ingredients: newRecipe.ingredients, cookingTime: newRecipe.cookingTime });
+    return res.status(201).json({
+      name: newRecipe.name,
+      category: newRecipe.category,
+      ingredients: newRecipe.ingredients,
+      cookingTime: newRecipe.cookingTime,
+    });
   } catch (err) {
     console.log(err);
     if (err.code === 11000) {
@@ -49,7 +54,6 @@ const getRecipes = (req, res) => RecipeModel.findByOwner(req.session.account._id
 
 // render the page for subscribers
 const paidProfilePage = (req, res) => res.render('paidPage');// paid page
-
 
 // search for a recipe
 const searchRecipe = (req, res) => {
