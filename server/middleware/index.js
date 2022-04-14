@@ -7,6 +7,14 @@ const requiresLogin = (req, res, next) => {
   return next();
 };// requires log in
 
+const requiresSubscription = (req, res, next) => {
+  if (!req.session.account.subscribed) {
+    // redirect to homepage if not logged in
+    return res.redirect('/maker');
+  }
+  return next();
+};// requires log in
+
 const requiresLogout = (req, res, next) => {
   if (req.session.account) {
     // if already logged in, go to the application
@@ -32,6 +40,7 @@ const bypassSecure = (req, res, next) => {
 
 module.exports.requiresLogin = requiresLogin;
 module.exports.requiresLogout = requiresLogout;
+module.exports.requiresSubscription = requiresSubscription;
 
 // NODE_ENV = production when using heroku
 if (process.env.NODE_ENV === 'production') {

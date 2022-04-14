@@ -22,8 +22,8 @@ const router = (app) => {
   app.post('/maker', mid.requiresLogin, controllers.Recipe.makeRecipe);
 
   // make sure theyre logged in. otherwise they cannot reach page
-  app.get('/paidProfilePage', mid.requiresLogin, controllers.Recipe.paidProfilePage);
-  app.post('/paidProfilePage', mid.requiresLogin, controllers.Recipe.searchRecipe);
+  app.get('/paidProfilePage', mid.requiresLogin, mid.requiresSubscription, controllers.Recipe.paidProfilePage);
+  app.post('/paidProfilePage', mid.requiresLogin, mid.requiresSubscription, controllers.Recipe.searchRecipe);
 
   // app.get('/', controllers.Account.loginPage);
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);

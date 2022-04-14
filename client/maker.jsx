@@ -45,7 +45,7 @@ const RecipeForm = (props) => {
             <label htmlFor='recipeCookingTime'>Cooking time (min): </label>
             <input id='recipeCookingTime' type='numebr' min='0' name='cookingTime' placeholder='Recipe Cooking Time (min)'/>
 
-            <input id='_csrf' type='hidden' name='_csrf' value={props.csrf} />
+            <input id='_csrf' type='hidden' name='_csrf' value={props._csrf} />
 
             <input className='makeRecipeSubmit' type='submit' value='Make Recipe' />
 
