@@ -14,14 +14,13 @@ const logout = (req, res) => {
 const login = (req, res) => {
   const username = `${req.body.username}`;
   const pass = `${req.body.pass}`;
-  const subscribed = false;
 
   if (!username || !pass) {
     return res.status(400).json({ error: 'All fields are required!' });
   }
 
   // both fields were entered, so check if pass matches username
-  return Account.authenticate(username, pass, subscribed, (err, account) => {
+  return Account.authenticate(username, pass, (err, account) => {
     if (err || !account) {
       return res.status(400).json({ error: 'Wrong username or password!' });
     }
@@ -37,7 +36,7 @@ const signup = async (req, res) => {
   const username = `${req.body.username}`;
   const pass = `${req.body.pass}`;
   const pass2 = `${req.body.pass2}`;
-  const subscribed = false;
+  const subscribed = `${req.body.subscribed}`;
 
   // if any fields not fille out, status error
   if (!username || !pass || !pass2) {
