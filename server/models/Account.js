@@ -5,7 +5,6 @@ const saltRounds = 10;
 
 let AccountModel = {};
 
-
 const AccountSchema = new mongoose.Schema({
   username: {
     type: String,
