@@ -6,23 +6,30 @@ individual paragraphs so that they are easier to parse.
 
 ● What is the intended purpose of your application?
 
-The purpose of this application is to allow the user to search for recipes. If the user has a "paid" profile, they will then have additional access to add their own recipe. (Paid function might be altered)
+The purpose of this application is to allow the user to search for recipes. 
+If the user has a "paid" profile subscription, they will then have additional access to add their own recipe on a new page. (Paid function might be altered later on)
 
 
 ● What data will be stored and delivered by the API?
 
-The user account information (username/password/paid profile). Also, the recipes will be stored in the api so the user can access them accordingly. 
+The user account information (username/password/paid profile). 
+Also, the recipes will be stored in the api so the user can access them accordingly. 
 
 ● What work has been completed for this prototype?
-
+-Login/Logout
+-Subscription page access to only subscribed members
+-Ability to add recipes
 
 ● What work is left, and how do you plan to complete it?
 
 Still need to complete the folowing:
-1. 
+1. Be able to search recipes by category 
+2. Asthetically change the design of the site
+3. Allow the user to change their subscription status
 
 
 ● Do you have a plan for going above and beyond? If so, what is it?
+If time allows, I would like to use express to allow the user to upload a file with their recipe instea of typing the ingredients in a text box.
 
 
 ● If you used any borrowed code or code fragments, where did you get them from?
@@ -34,7 +41,7 @@ chef image link: https://pixabay.com/illustrations/cook-food-symbol-shape-dish-4
 
 Endpoint Documentation
 
-URL: /
+URL: /maker
 Supported Methods: GET, HEAD
 Query Params: 
 Description: 

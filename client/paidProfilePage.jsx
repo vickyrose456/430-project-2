@@ -39,7 +39,7 @@ const RecipeForm = (props) => {
             <label htmlFor='recipeCategory'>Category: </label>
             <input id='recipeCategory' type='text' name='category' placeholder='Recipe Category' />
 
-            <input id='_csrf' type='hidden' name='_csrf' value={props._csrf} />
+            <input id='_csrf' type='hidden' name='_csrf' value={props.csrf} />
 
             <input className='makeRecipeSubmit' type='submit' value='Make Recipe' />
 
