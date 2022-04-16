@@ -91,7 +91,7 @@ const loadRecipesFromServer = async () => {
 
     ReactDOM.render(
         <RecipeList recipes ={data.recipes} />,
-        document.getElementById('recipes')
+        document.getElementById('myRecipes')
     );
 };//end load recipes from server
 
@@ -107,7 +107,7 @@ const init = async() =>{
 
     ReactDOM.render(
         <RecipeList recipes ={[]} />,
-        document.getElementById('recipes')
+        document.getElementById('myRecipes')
     );
 
     loadRecipesFromServer();

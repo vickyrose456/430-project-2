@@ -49,11 +49,11 @@ RecipeSchema.statics.findByOwner = (ownerId, callback) => {
   return RecipeModel.find(search).select('name category ingredients cookingTime').lean().exec(callback);
 };
 
-// finding a specific recipe by category
-RecipeSchema.statics.findByName = (category, callback) => {
-  const search = { category };
+// finding a specific recipe by name
+RecipeSchema.statics.findByName = (name, callback) => {
+  const search = { name };
 
-  return RecipeModel.findOne(search, callback);
+  return RecipeModel.find(search, callback);
 };
 
 RecipeModel = mongoose.model('Recipe', RecipeSchema);

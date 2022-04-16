@@ -5,6 +5,11 @@ const { Recipe } = models;
 
 const makerPage = (req, res) => res.render('app');
 
+// render the page for subscribers
+const paidProfilePage = (req, res) => {
+  return res.render('paidPage');// paid page
+}
+
 const makeRecipe = async (req, res) => {
   if (!req.body.name || !req.body.category || !req.body.ingredients || !req.body.cookingTime) {
     return res.status(400).json({ error: 'Name, category, ingredients and cooking time are all required!' });
@@ -52,16 +57,13 @@ const getRecipes = (req, res) => RecipeModel.findByOwner(req.session.account._id
   return res.json({ recipes: docs });
 });// get recipe
 
-// render the page for subscribers
-const paidProfilePage = (req, res) => res.render('paidPage');// paid page
-
 // search for a recipe
 const searchRecipe = (req, res) => {
-  if (!req.query.name) {
-    return res.status(400).json({ error: 'Name is required to perform a search' });
-  }
-
-  return Recipe.findByName('v', (err, doc) => {
+  //if (!req.query.name) {
+    //return res.status(400).json({ error: 'Name is required to perform a search' });
+  //}
+  console.log("Query name: " + req.query.name);
+  return RecipeModel.findByName('Hamburger', (err, doc) => {
     if (err) {
       return res.status(500).json({ err });
     }
@@ -71,12 +73,7 @@ const searchRecipe = (req, res) => {
     }
 
     // we got the recipe data
-    return res.json({
-      name: doc.name,
-      category: doc.category,
-      ingredients: doc.ingredients,
-      cookingTime: doc.cookingTime,
-    });
+    return res.json({ recipes: doc});
   });
 };/// /end search recipe
 

@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>RecipeMaker</title>
+  <title>Recipe Maker</title>
   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <link rel="shortcut icon" href="/assets/img/recipeLogo.png"/>
@@ -9,11 +9,12 @@
 </head>
 <body>
   <nav><a href="/login"><img id="logo" src="/assets/img/recipeLogo.png" alt="recipe logo"/></a>
-    <div class="navlink"><a href="/logout">Log out</a></div>
-    <div class="navlink"><a href="/maker">Recipe Maker App</a></div>
+    <div class="navlink"><a href="/logout">Log out</a></div>    
+    <div class="navlink"><a id="makerButton" href="/maker">Recipe Maker App</a></div>
+    <div class="navlink"><a id= 'paidPageButton' href="/paidProfilePage">Advanced Account</a></div>
   </nav>
 
-  <section id="makeRecipe">
+  <section id="searchRecipe">
 
   </section>
   <section id="recipes">
@@ -25,6 +26,6 @@
     <h3><span id="errorMessage"></span></h3>
     <img id="recipe" src="assets/img/chef.png" alt="recipe"/>
   </div>
-  <script src="/assets/appBundle.js"></script>
+  <script src="/assets/paidProfilePageBundle.js"></script>
 </body>
 </html>

@@ -28,13 +28,13 @@ nav:nth-child(1) {
     padding: 5px;
     padding-top: 12px;
     padding-left: 20px;
-    color: white;
+    color: black;
     font-size: 1.3em;
     float: left;
 }
 
 .navlink a, .navlink a:link, .navlink a:visited, .navlink a:hover, .navlink a:active {
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 5px;
     border-radius: 4px;
@@ -64,25 +64,25 @@ nav:nth-child(1) {
     margin-left: 10px;
     font-size: 1.2em;
     float: left;
-    color: white;
+    color: black;
 }
 
 .recipeForm input[type=text] {
     float:left;
 }
 
-.makeRecipeSubmit {
+.makeRecipeSubmit, .searchRecipeSubmit{
     transition: background-color 0.4s ease;
     display: inline;
     width: 90px;
     background-color: #bcdfe3;
     border-radius: 2px;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 .makeRecipeSubmit:link, .makeRecipeSubmit:visited, .makeRecipeSubmit:hover, .makeRecipeSubmit:active {
-    color: white;
+    color: black;
 }
 
 .makeRecipeSubmit:hover {
@@ -122,12 +122,12 @@ nav:nth-child(1) {
     border-radius: 2px;
     border-color: #7bb9c0;
     padding: 3px 0px;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 .formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
-    color: white;
+    color: black;
 }
 
 .formSubmit:hover {
@@ -193,6 +193,15 @@ nav:nth-child(1) {
 }
 
 #recipes {
+    width: 40%;
+    min-width: 400px;
+    border: 2px solid #bcdfe3;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+#myRecipes {
     width: 40%;
     min-width: 400px;
     border: 2px solid #bcdfe3;
