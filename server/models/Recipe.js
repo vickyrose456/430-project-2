@@ -17,6 +17,11 @@ const RecipeSchema = new mongoose.Schema({
     min: 0,
     require: true,
   },
+  category: {
+    type: String,
+    min: 0,
+    require: true,
+  },
   cookingTime: {
     type: Number,
     min: 0,

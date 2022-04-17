@@ -2,36 +2,19 @@ const helper = require('./helper.js');
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-const handleSearchRecipe = (e) => {
-    e.preventDefault();
-    helper.hideError();
-
-    const name = e.target.querySelector('#recipeSearchName').value;
-    const _csrf = e.target.querySelector('#_csrf').value;
-
-    if(!name)
-    {
-        helper.handleError('All fields are required!');
-        return false;
-    }
-
-    helper.sendPost(e.target.action, {name, _csrf}, loadRecipeFromServer);
-
-    return false;
-
-};//handle recipe
-
 const RecipeSearchForm = (props) => {
     return (
         <form id='recipeSearchForm'
-            onSubmit={handleSearchRecipe}
+            onSubmit={loadRecipeFromServer}
             name = 'recipeSearchForm'
-            action='/recipeSearch'
+            action='/findByName'
             method='GET'
             className='recipeSearchForm'
         >            
             <label htmlFor='name'>Name: </label>
             <input id='recipeSearchName' type='text' name='name' placeholder='Recipe Name' />
+
+            <input id='_csrf' type='hidden' name='_csrf' value={props.csrf} />
 
             <input className='searchRecipeSubmit' type='submit' value='Search Recipe' />
 
@@ -81,6 +64,7 @@ const loadRecipeFromServer = async () => {
     );
 };//end load recipes from server
 
+
 //get csrf token to render the recipes to the page
 const init = async() =>{
     const response = await fetch('/getToken');
@@ -95,20 +79,6 @@ const init = async() =>{
         <RecipeList recipes ={[]} />,
         document.getElementById('recipes')
     );
-
-    loadRecipeFromServer();
-    
-    /*ReactDOM.render(
-        <RecipeForm csrf ={data.csrfToken} />,
-        document.getElementById('makeRecipe')
-    );
-
-    ReactDOM.render(
-        <RecipeList recipes ={[]} />,
-        document.getElementById('recipes')
-    );
-
-    loadRecipesFromServer();*/
 
 };//init
 
