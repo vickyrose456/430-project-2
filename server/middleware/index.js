@@ -10,7 +10,7 @@ const requiresLogin = (req, res, next) => {
 const requiresSubscription = (req, res, next) => {
   if (!req.session.account.subscribed) {
     // redirect to homepage if not logged in
-    return res.redirect('/maker');
+    return res.redirect('/recipeSearch');
   }
   return next();
 };// requires log in
@@ -18,7 +18,7 @@ const requiresSubscription = (req, res, next) => {
 const requiresLogout = (req, res, next) => {
   if (req.session.account) {
     // if already logged in, go to the application
-    return res.redirect('/maker');
+    return res.redirect('/recipeSearch');
   }
   return next();
 };// requires logout

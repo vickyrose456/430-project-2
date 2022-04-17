@@ -27,7 +27,7 @@ const login = (req, res) => {
 
     req.session.account = Account.toAPI(account);
 
-    return res.json({ redirect: './maker' });
+    return res.json({ redirect: './recipeSearch' });
   });
 };// end login
 
@@ -63,7 +63,7 @@ const signup = async (req, res) => {
 
     req.session.account = Account.toAPI(newAccount);
 
-    return res.json({ redirect: '/maker' });
+    return res.json({ redirect: '/recipeSearch' });
   } catch (err) {
     console.log(err);
     if (err.code === 11000) { // code 11000 is mongo's duplicate entry error
