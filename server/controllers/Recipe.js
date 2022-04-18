@@ -66,12 +66,12 @@ const searchRecipe = (req, res) => {
       return res.status(500).json({ error: 'An error occured!' });
     }
     // if no doc found / empty doc
-    if (!doc || doc.length == 0) {
+    if (!doc || doc.length === 0) {
       return res.json({ error: 'No recipes found ):' });
     }
 
     // we got the recipe data
-    return res.json({ recipes: doc});
+    return res.json({ recipes: doc });
     // return res.render('app', {recipes: doc});
   });
 };/// /end search recipe
