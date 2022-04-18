@@ -2,12 +2,30 @@ const helper = require('./helper.js');
 const React = require('react');
 const ReactDOM = require('react-dom');
 
+const handleSearchRecipe = (e) => {
+    e.preventDefault();
+    helper.hideError();
+
+    const searchName = e.target.querySelector('#recipeSearchName').value;
+
+    if(!searchName)
+    {
+        helper.handleError('Name is required!');
+        return false;
+    }
+
+    loadRecipeFromServer(searchName);
+
+    return false;
+
+};//handle recipe
+
 const RecipeSearchForm = (props) => {
     return (
         <form id='recipeSearchForm'
-            onSubmit={loadRecipeFromServer}
+            onSubmit={handleSearchRecipe}
             name = 'recipeSearchForm'
-            action='/findByName'
+            action='/recipeSearch'
             method='GET'
             className='recipeSearchForm'
         >            
@@ -54,8 +72,8 @@ const RecipeList = (props) => {
 };//recipe list
 
 //fns to load recipes from the server
-const loadRecipeFromServer = async () => {
-    const response = await fetch('/findByName');
+const loadRecipeFromServer = async (name) => {
+    const response = await fetch(`/findByName?name=${name}`);
     const data = await response.json();
 
     ReactDOM.render(

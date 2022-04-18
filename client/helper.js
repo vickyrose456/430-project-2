@@ -3,12 +3,6 @@ const handleError = (message) => {
     document.getElementById('recipeMessage').classList.remove('hidden');
   };//handle error
   
-/**
-We want to change sendPost to make it a little more versatile. We will be modifying
-the version in helper.js. This new version will take in a third parameter called handler.
-This will be a function we can pass in to add functionality to handling requests. We
-call it at the bottom of sendPost, provided we passed something in for it
- */
 const sendPost = async (url, data, handler) => {
     const response = await fetch(url, {
       method: 'POST',
@@ -36,6 +30,7 @@ const sendPost = async (url, data, handler) => {
   
   };//send post
 
+  
 const hideError = () => {
     document.getElementById('recipeMessage').classList.add('hidden');
 }; //hide error

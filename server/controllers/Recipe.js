@@ -55,25 +55,24 @@ const getRecipes = (req, res) => RecipeModel.findByOwner(req.session.account._id
   return res.json({ recipes: docs });
 });// get recipe
 
-
 // search for a recipe
 const searchRecipe = (req, res) => {
-   if (!req.query.name) {
-   return res.status(400).json({ error: 'Name is required to perform a search' });
+  if (!req.query.name) {
+    return res.status(400).json({ error: 'Name is required to perform a search' });
   }
-  //console.log(`Query name: ${req.query.name}`);
+  // console.log(`Query name: ${req.query.name}`);
   return RecipeModel.findByName(req.query.name, (err, doc) => {
     if (err) {
-      return res.status(500).json({ err });
+      return res.status(500).json({ error: 'An error occured!' });
     }
     // if no doc found / empty doc
-    if (!doc) {
-      return res.json({ error: 'No recipes found' });
+    if (!doc || doc.length == 0) {
+      return res.json({ error: 'No recipes found ):' });
     }
 
     // we got the recipe data
-    return res.json({ recipes: doc });
-    //return res.render('app', {recipes: doc});
+    return res.json({ recipes: doc});
+    // return res.render('app', {recipes: doc});
   });
 };/// /end search recipe
 

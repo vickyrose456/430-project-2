@@ -19,7 +19,7 @@ const router = (app) => {
 
   // make sure theyre logged in. otherwise they cannot reach page
   app.get('/recipeSearch', mid.requiresLogin, controllers.Recipe.appPage);
-  app.post('/recipeSearch', mid.requiresLogin, controllers.Recipe.searchRecipe);
+  //app.post('/recipeSearch', mid.requiresLogin, controllers.Recipe.searchRecipe);
 
   // make sure theyre logged in. otherwise they cannot reach page
   app.get('/paidProfilePage', mid.requiresLogin, mid.requiresSubscription, controllers.Recipe.paidProfilePage);
