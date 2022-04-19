@@ -14,6 +14,10 @@ const router = (app) => {
 
   app.post('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signup);
 
+  // need to be logged in already to change password
+  app.get('/editLogin', mid.requiresSecure, mid.requiresLogin, controllers.Account.editLoginPage);
+  // app.post('/editProfile', mid.requiresSecure, mid.requiresLogin, controllers.Account.editLogin);
+
   // make sure theyre logged in and cant logout if they arent logged in
   app.get('/logout', mid.requiresLogin, controllers.Account.logout);
 

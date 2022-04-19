@@ -1,32 +1,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>Recipe Maker</title>
+  <title>Raging Recipes</title>
   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <link rel="shortcut icon" href="/assets/img/recipeLogo.png"/>
   <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
 </head>
-<body>
+<body> 
   <nav><a href="/login"><img id="logo" src="/assets/img/recipeLogo.png" alt="recipe logo"/></a>
     <div class="navlink"><a href="/logout">Log out</a></div>    
     <div class="navlink"><a id="makerButton" href="/recipeSearch">Recipe Search App</a></div>
     <div class="navlink"><a id= 'paidPageButton' href="/paidProfilePage">Advanced Account</a></div>
     <a href="/editLogin"><img id="logo" src="/assets/img/profileLogo.png" alt="profile logo"/></a>
   </nav>
+  
+  <section id="content">
 
-  <section id="makeRecipe">
-
-  </section>
-  <section id="myRecipes">
-    
   </section>
 
   <div id="recipeMessage" class='hidden'>
     <img id="speech" src="/assets/img/speech.png" alt="speech box"/>
     <h3><span id="errorMessage"></span></h3>
-    <img id="recipe" src="assets/img/chef.png" alt="recipe"/>
+    <img id="chef" src="assets/img/chef.png" alt="chef"/>
   </div>
-  <script src="/assets/paidProfilePageBundle.js"></script>
+  <script src="/assets/loginBundle.js"></script>
 </body>
 </html>

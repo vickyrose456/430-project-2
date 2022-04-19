@@ -6,6 +6,8 @@ const loginPage = (req, res) => {
   res.render('login', { csrfToken: req.csrfToken() });
 };// end login page
 
+const editLoginPage = (req, res) => res.render('editLogin');// end login page
+
 const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
@@ -74,6 +76,23 @@ const signup = async (req, res) => {
   }// end catch
 };// end signup
 
+/* fns to change the password for the account
+const editLogin = async (req, res) => {
+  const newPass1 = `${req.body.newPass1}`;
+  const newPass2 = `${req.body.newPass2}`;
+
+  if (!newPass1 || !newPass2) {
+    return res.status(400).json({ error: 'All fields are required!' });
+  }
+
+  if (newPass1 !== newPass2) {
+    return res.status(400).json({ error: 'Passwords need to match!' });
+  }
+
+  // no errors, so hash the new password so that it is encyrpted
+  return
+};// end editLogin */
+
 const getToken = (req, res) => res.json({ csrfToken: req.csrfToken() });// get Token
 
 module.exports = {
@@ -81,5 +100,7 @@ module.exports = {
   logout,
   login,
   signup,
+  editLoginPage,
+  // editLogin,
   getToken,
 };

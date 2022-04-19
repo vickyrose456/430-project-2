@@ -74,7 +74,6 @@ nav:nth-child(1) {
 .makeRecipeSubmit, .searchRecipeSubmit{
     transition: background-color 0.4s ease;
     display: inline;
-    width: 90px;
     background-color: #bcdfe3;
     border-radius: 2px;
     color: black;
@@ -193,6 +192,15 @@ nav:nth-child(1) {
 }
 
 #recipes {
+    width: 40%;
+    min-width: 400px;
+    border: 2px solid #bcdfe3;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+#recipes .img {
     width: 40%;
     min-width: 400px;
     border: 2px solid #bcdfe3;

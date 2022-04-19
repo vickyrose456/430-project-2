@@ -5,6 +5,7 @@ module.exports = {
         app: './client/maker.jsx',
         login: './client/login.jsx',
         paidProfilePage: './client/paidProfilePage.jsx',
+        editLogin: './client/editLogin.jsx',
     },
     //module update tells webpack to use babel-loader to handle js or jsx files
     module: {
