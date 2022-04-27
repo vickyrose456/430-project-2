@@ -76,7 +76,8 @@ const signup = async (req, res) => {
   }// end catch
 };// end signup
 
-/* fns to change the password for the account
+// fns to change the password for the account
+/*
 const editLogin = async (req, res) => {
   const newPass1 = `${req.body.newPass1}`;
   const newPass2 = `${req.body.newPass2}`;
@@ -89,8 +90,7 @@ const editLogin = async (req, res) => {
     return res.status(400).json({ error: 'Passwords need to match!' });
   }
 
-  // no errors, so hash the new password so that it is encyrpted
-  return
+  // no errors, so hash the new password so that it is encyrpted and update the profile
 };// end editLogin */
 
 const getToken = (req, res) => res.json({ csrfToken: req.csrfToken() });// get Token
