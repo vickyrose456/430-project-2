@@ -54,5 +54,34 @@ AccountSchema.statics.authenticate = async (username, password, callback) => {
   }
 };
 
+AccountSchema.statics.updatePass = async (name, pass, subscribe, callback) => {
+  const searchName = {
+    username: name,
+  };
+  /* const newInfo = {
+    username: name,
+    password: pass,
+    subscribed: subscribe
+  } */
+  const newInfo = {
+    password: pass,
+    subscribed: subscribe
+  };
+
+  try {
+    // if the account does exist, update the password
+    // the password should be sent as an encrypted password already
+    const doc = await AccountModel.findOneAndUpdate(searchName, newInfo, { new: true });
+    if (!doc) {
+      // if no account w/ that name return the callback fns
+      return callback();
+    }// end if
+    return callback(null, doc);
+  } catch (err) {
+    // send back the error that occured
+    return callback(err);
+  }// end catch
+};// end update password
+
 AccountModel = mongoose.model('Account', AccountSchema);
 module.exports = AccountModel;

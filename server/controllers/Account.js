@@ -76,22 +76,39 @@ const signup = async (req, res) => {
   }// end catch
 };// end signup
 
-// fns to change the password for the account
-/*
 const editLogin = async (req, res) => {
-  const newPass1 = `${req.body.newPass1}`;
-  const newPass2 = `${req.body.newPass2}`;
+  const username = `${req.body.username}`;
+  const pass = `${req.body.pass}`;
+  const pass2 = `${req.body.pass2}`;
+  const subscribed = `${req.body.subscribed}`;
 
-  if (!newPass1 || !newPass2) {
+  if (!username || !pass || !pass2) {
     return res.status(400).json({ error: 'All fields are required!' });
   }
 
-  if (newPass1 !== newPass2) {
+  if (pass !== pass2) {
     return res.status(400).json({ error: 'Passwords need to match!' });
   }
 
-  // no errors, so hash the new password so that it is encyrpted and update the profile
-};// end editLogin */
+  try {
+    // no errors so hash the password to be encrypted
+    //console.dir(pass);
+    const hash = await Account.generateHash(pass);
+    //console.dir(hash);
+    // find the user and update the subscription and password
+    return Account.updatePass(username, hash, subscribed, (err, doc) => {
+    // return callback if theres an error
+      if (err || !doc) {
+        return res.json({ err });
+      }
+
+      // redirect to logout page
+      return res.json({ redirect: './recipeSearch' });
+    });// end updatePassword
+  } catch (err) {
+    return res.status(400).json({ error: 'an error occured.' });
+  }// end catch
+};// edit login
 
 const getToken = (req, res) => res.json({ csrfToken: req.csrfToken() });// get Token
 
@@ -101,6 +118,6 @@ module.exports = {
   login,
   signup,
   editLoginPage,
-  // editLogin,
+  editLogin,
   getToken,
 };
